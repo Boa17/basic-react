@@ -1,10 +1,10 @@
-import React,{useEffect,useState} from 'react'
-import axios from 'axios'
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
 
 
-//const url = 'https://serv-react-api.netlify.app/api/2-basic-api'
-const url = 'https://serv-react-api.netlify.app/api/3-z-complete'
-
+const url = 'https://serv-react-api.netlify.app/api/2-basic-api'
+//const url = 'https://serv-react-api.netlify.app/api/3-z-complete'
+//sta
 const Basic = () => {
 const [products,setProducts] = useState([]);
 
@@ -28,12 +28,13 @@ fetchData()
    </div>
    <div className="products">
 {products.map((product)=> {
- const {id,url,price,name} = product
+ const {id,image:{url},price,name} = product
+
  return <article className="product" key={id}>
   <img src={url} alt={name}/>
   <div className="info"></div>
   <h5>{name}</h5>
-  <h5 className="price">${price}</h5>
+  <h5 className="price">{price}</h5>
  </article>
 })}
    </div>
